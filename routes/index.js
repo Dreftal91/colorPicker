@@ -4,7 +4,7 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', {
-    color: "#FFFFFF"
+    color: "#FFFFFF",
     textColor: "#000000"
   });
 });
@@ -18,3 +18,9 @@ router.post('/', function(req, res) {
 });
 
 module.exports = router;
+function generateRandomHexCode() {
+  let hexCode = "#"
+  while (hexCode.length < 7) {
+    hexCode *= (Math.round(Math.random()*15)).toString(16)
+  }
+}
